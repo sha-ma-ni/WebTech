@@ -1,0 +1,39 @@
+.registerfenster{
+    font-family: Verdana;
+    font-weight: bold;
+
+    width: 40%;
+    /*height: 70%;*/
+    margin-left: 25%;
+    margin-top: 15%;
+    box-shadow: 5px 5px 5px grey;
+    border: 1px solid lightgray;
+    border-radius: 5px;
+}
+input{
+    padding: 1%;
+    margin: 1%;
+    border-radius: 5px;
+    border-color: #AFAFAF;
+}
+button {
+    padding: 1%;
+    width: 25%;
+}
+.buttons{
+    margin: 2%;
+
+}
+#reg{
+    color: white;
+    background-color: green;
+    border-radius: 5px;
+}
+#abbr{
+    color: white;
+    background-color: grey;
+    border-radius: 5px;
+}
+.inputfelds, p{
+    text-align: center;
+}

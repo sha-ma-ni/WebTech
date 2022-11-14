@@ -6,8 +6,41 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Uebung 4</title>
     <link href="../rwd/css/bootstrap.min.css" rel="stylesheet">
+    <link href="./Uebung_4.css" rel="stylesheet">
 </head>
 <body>
-    
+<div class="registerfenster">
+    <p id="titel">Teilnehmerin Registrierung</p>
+    <div class="inputfelds">
+    <td><input id="name" class="form-control" placeholder="First name"></td>
+    <td><input id="lastname" class="form-control"  placeholder="Last name"></td>
+    <td><input id="email" class="form-control"  placeholder="E-Mail"></td>
+    <td><input id="ip" class="form-control"  placeholder="IP-Adress"></td>
+    </div>
+    <div class="buttons">
+    <button id="abbr" type="button" class="btn btn-secondary">Abbrechen</button>
+    <button id="reg" type="button" class="btn btn-secondary" onclick="allInfoZeigen()">Registrieren</button>
+    </div>
+    <div id="info1"></div>
+</div>
+
+<script>
+    function allInfoZeigen() {
+        console.log('Button geklickt')
+
+        let name = document.getElementById("name").value;
+        let lastname = document.getElementById("lastname").value;
+        let email = document.getElementById("email").value;
+        let ip = document.getElementById("ip").value;
+
+        document.getElementById("info1").innerHTML =
+            "<i style='color: red'>Eingegebene Werte :</istyle><br><br>" +
+            "<i style='color: black; font-weight: normal'> Vorname : </style>" + name +
+            "<br>Nachname : " + lastname +
+            "<br>E-Mail : " + email +
+            "<br>Ip-Adresse : " + ip;
+    }
+</script>
+
 </body>
 </html>

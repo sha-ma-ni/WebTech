@@ -1,0 +1,37 @@
+h1{
+    color: white;
+    text-align: center;
+
+}
+header {
+    background-color: green;
+    padding: 1%;
+
+}
+.citybox{
+    background-color: white;
+
+    text-align: center;
+    margin: 5%;
+box-shadow: 5px 5px 5px 6px darkgrey;
+
+}
+img{
+    height: 180px;
+    width: 120px;
+    padding-top: 10%;
+    margin-bottom: 20%;
+}
+.row{
+    display: grid;
+   grid-template-columns: auto auto auto auto;
+}
+.grid-container{
+    padding: 1%;
+}
+body{
+    width: 60%;
+    margin-left: 20%;
+    box-shadow: 5px 5px 5px grey;
+    border: 1px solid lightgray;
+}

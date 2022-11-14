@@ -12,21 +12,21 @@
 <div class="registerfenster">
     <p id="titel">Teilnehmerin Registrierung</p>
     <div class="inputfelds">
-    <td><input id="name" class="form-control" placeholder="First name"></td>
-    <td><input id="lastname" class="form-control"  placeholder="Last name"></td>
-    <td><input id="email" class="form-control"  placeholder="E-Mail"></td>
-    <td><input id="ip" class="form-control"  placeholder="IP-Adress"></td>
+        <td><input id="name" class="form-control" placeholder="First name"></td>
+        <td><input id="lastname" class="form-control" placeholder="Last name"></td>
+        <td><input id="email" class="form-control" placeholder="E-Mail"></td>
+        <td><input id="ip" class="form-control" placeholder="IP-Adress"></td>
     </div>
     <div class="buttons">
-    <button id="abbr" type="button" class="btn btn-secondary">Abbrechen</button>
-    <button id="reg" type="button" class="btn btn-secondary" onclick="allInfoZeigen()">Registrieren</button>
+        <button id="abbr" type="button" class="btn btn-secondary" onclick="allesLoeschen()">Abbrechen</button>
+        <button id="reg" type="button" class="btn btn-secondary" onclick="allInfoZeigen()">Registrieren</button>
     </div>
     <div id="info1"></div>
 </div>
 
 <script>
     function allInfoZeigen() {
-        console.log('Button geklickt')
+        console.log('Button "Registrieren" geklickt');
 
         let name = document.getElementById("name").value;
         let lastname = document.getElementById("lastname").value;
@@ -39,6 +39,15 @@
             "<br>Nachname : " + lastname +
             "<br>E-Mail : " + email +
             "<br>Ip-Adresse : " + ip;
+    }
+
+    function allesLoeschen() {
+        console.log('Button "Abbrechnen" geklickt');
+
+        document.getElementById("name").value = "";
+        document.getElementById("lastname").value = "";
+        document.getElementById("email").value = "";
+        document.getElementById("ip").value = "";
     }
 </script>
 

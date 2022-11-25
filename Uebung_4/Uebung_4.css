@@ -2,10 +2,10 @@
     font-family: Verdana;
     font-weight: bold;
 
-    width: 40%;
+    width: 30%;
     /*height: 70%;*/
-    margin-left: 25%;
-    margin-top: 15%;
+    margin-left: 35%;
+    margin-top: 10%;
     box-shadow: 5px 5px 5px grey;
     border: 1px solid lightgray;
     border-radius: 5px;
@@ -16,6 +16,7 @@ input{
     border-radius: 5px;
     border-color: #AFAFAF;
 }
+
 button {
     padding: 1%;
     width: 25%;
@@ -33,6 +34,8 @@ button {
     color: white;
     background-color: grey;
     border-radius: 5px;
+    margin-left: 8%;
+    margin-bottom: 5%;
 }
 .inputfelds, p{
     text-align: center;

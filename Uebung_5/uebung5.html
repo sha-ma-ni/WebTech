@@ -40,38 +40,63 @@
 
     let staedtearr = [];
 
-     async function getStaedte() {
+    async function getStaedte() {   //diese funktion "holt" die Datei staedte.json und gibt sie zurück
 
-         const request = new Request('staedte.json', {
-             method: 'GET',      // GET ist default
-             headers: {
-                 'Accept': 'application/json'
-             }
-         });
+        const request = new Request('staedte.json', {  //schickt GET-Anfrage an staedte.json
+            method: 'GET',      // GET ist default
+            headers: {
+                'Accept': 'application/json'
+            }
+        });
 
-         const response = await fetch(request);
-         console.log(response);
-         return response.json();
-     }
+        const response = await fetch(request);  //erstellt neue response (antwort) objekt
+        console.log(response);
+        return response.json();
+    }
 
     function createTable() {
+
+        //filter function
         let input = document.getElementById('filter').value;
 
-        if(staedtearr.length > 0)
-        {
-            let tbody = document.getElementById('tbody');
-            tbody.innerHTML = '';
-            let nr = 1;
+        let filteredData = staedtearr;  //
 
-            // hier muessen jetzt die einzelnen Zeilen in die Tabelle eingelesen werden
-            // das Staedte-Array muss ausgelesen werden (z.B. for(stadt of staedtearr)
-            // Tipp: zunaechst einfach alle anzeigen lassen und erst dann das Filtern einbauen
-            // Filtern: die Eingabe mit dem jeweiligen Gruendungsjahr bzw. der jeweiligen Stadt
-            // vergleichen (siehe z.B. substring(0, input.length) und toLowerCase())
-            // wenn match, dann entsprechende Zeile einfuegen; sonst nicht
+        if (filteredData.length > 0) {   //toLowerCAse - kleine Buchstabe
+            //filteredData = filteredData.filter(stadt => stadt.stadt.toLowerCase().includes(input.toLowerCase()));
+            filteredData = filteredData.filter((e) => {
+                if (e.stadt.toLowerCase().includes(input.toLowerCase(e))) {
+                    return e;
+                }
+                return false;
+            });
+        }
 
+        //tbody creation
+        let tbody = document.getElementById('tbody');
+        tbody.innerHTML = '';
+        let nr = 1;
 
- //this works!!!!! from hier-----------------------------------------
+        for (let i = 0; i < filteredData.length; i++) {
+            let stadt = filteredData[i];   //stadt ist ein element von Array
+            let row = `<tr>
+                           <td>${i + nr}</td>
+                           <td>${stadt.jahr}</td>
+                           <td>${stadt.stadt}</td>
+                           <td><a href='${stadt.link}'>${stadt.link}<a/></td>
+                           <td><img src = ${stadt.bild}></td>
+                           </tr>`;
+            tbody.innerHTML += row;
+
+        }
+        // hier muessen jetzt die einzelnen Zeilen in die Tabelle eingelesen werden
+        // das Staedte-Array muss ausgelesen werden (z.B. for(stadt of staedtearr)
+        // Tipp: zunaechst einfach alle anzeigen lassen und erst dann das Filtern einbauen
+        // Filtern: die Eingabe mit dem jeweiligen Gruendungsjahr bzw. der jeweiligen Stadt
+        // vergleichen (siehe z.B. substring(0, input.length) und toLowerCase())
+        // wenn match, dann entsprechende Zeile einfuegen; sonst nicht
+
+    }
+        //this works!!!!! from hier-----------------------------------------
 //   let staedte = [
 //     {
 //       "jahr": 1237,
@@ -102,29 +127,18 @@
 //   }
 // buildTable(staedte);
 //to hier------------------------------------------------------------------
-        }
-    }
 
-    function init() {
-
-        let data = getStaedte();
-        staedtearr = data.staedte;
-
-
-
-
-
-        // let tbody = document.querySelector('#tbody');
-        //  let data =  Object.keys(staedtearr[0]);
-        // createTable(tbody, data);
-
-
-
+    async function init() {
         // hier getStaedte() aufrufen und
         // staedtearr befuellen!
         // siehe Promises!
+
+        let data = await getStaedte();
+        staedtearr = data.staedte;
+        createTable();
     }
 
+    init();
 
 </script>
 </body>

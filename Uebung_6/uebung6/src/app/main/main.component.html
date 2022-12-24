@@ -1,0 +1,21 @@
+
+
+<link href="main.component.css" rel="stylesheet">
+<button (click)="tableOnOff()" type="button">{{ buttonText }}</button>
+<div id="noTable" *ngIf="show" >Tabelle nicht vorhanden</div>
+<table *ngIf="!show">
+  <thead>
+  <tr>
+    <th>Vorname</th>
+    <th>Nachname</th>
+    <th>E-Mail-Adresse</th>
+  </tr>
+  </thead>
+  <tbody>
+  <tr *ngFor="let mem of members">
+    <td>{{mem.forename}}</td>
+    <td>{{mem.surname}}</td>
+    <td>{{mem.email}}</td>
+  </tr>
+  </tbody>
+</table>

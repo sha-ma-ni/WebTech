@@ -1,9 +1,7 @@
-
-
 <link href="main.component.css" rel="stylesheet">
 <button (click)="tableOnOff()" type="button">{{ buttonText }}</button>
-<div id="noTable" *ngIf="show" >Tabelle nicht vorhanden</div>
-<table *ngIf="!show">
+
+<table *ngIf="show">
   <thead>
   <tr>
     <th>Vorname</th>
@@ -19,3 +17,4 @@
   </tr>
   </tbody>
 </table>
+<div id="noTable" *ngIf="!show" >Tabelle nicht vorhanden</div>

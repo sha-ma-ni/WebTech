@@ -11,6 +11,7 @@ export class MembersService {
     let response = await fetch('./assets/members.json');
     let members = await response.json();
 
+    console.log(members);
     return members;
   }
 }

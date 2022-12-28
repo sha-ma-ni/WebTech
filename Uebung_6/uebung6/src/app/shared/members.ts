@@ -1,5 +1,5 @@
 export interface Member {
-  forename: String,
-  surname: String,
-  email: String
+  forename: string,
+  surname: string,
+  email: string
 }

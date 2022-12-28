@@ -8,25 +8,25 @@ import {MembersService} from "../shared/members.service";
   styleUrls: ['./main.component.css']
 })
 export class MainComponent implements OnInit {
-  buttonText = 'Tabelle anzeigen';
+  members: Member[] = [];  //???
+  buttonText = 'Tabelle verstecken';
   show = true;
-members: Member[] | undefined;
 
-
-  constructor() {
-
-  }
+  constructor(private ms: MembersService) {}
 
   ngOnInit(): void {
+    this.ms.getAll().then(resp => {
+      this.members = resp;
+    })
   }
   tableOnOff(): void{
-    if(this.buttonText === 'Tabelle anzeigen'){
+    if(this.buttonText == 'Tabelle anzeigen'){
       this.buttonText = 'Tabelle verstecken';
-      this.show = false;
+      this.show = true;
     }
     else{
       this.buttonText = 'Tabelle anzeigen';
-      this.show = true;
+      this.show = false;
     }
   }
 }

@@ -3,7 +3,10 @@ table {
   width: 70%;
   margin-left: 15%;
   box-shadow: #AFAFAF 8px 4px 5px; /*color vert horiz blur */
-
+ margin-bottom: 60px;
+}
+table tr:hover{
+background-color: lightgray;
 }
 table, tr, td, th {
   border: #AFAFAF solid;

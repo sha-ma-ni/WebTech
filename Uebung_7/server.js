@@ -11,7 +11,7 @@ app.use(express.json());
 app.use('/', routes);
 
 // connect to mongoDB
-mongoose.connect(process.env.DB_CONNECTION, { dbName: process.env.DATABASE });
+mongoose.connect(process.env.DB_CONNECTION, {dbName: process.env.DATABASE});
 const db = mongoose.connection;
 db.on('error', err => {
     console.log(err);
